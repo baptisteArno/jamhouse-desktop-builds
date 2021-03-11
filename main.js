@@ -58,7 +58,7 @@ app.whenReady().then(() => {
   server.listen(port, () => console.log("Server listening"));
   createWindow();
   if (autoJoinRoom) {
-    win.webContents.send("join-room", data.replace("jamhouse://", ""));
+    win.webContents.send("join-room", autoJoinRoom);
   }
 });
 
@@ -84,6 +84,6 @@ app.on("open-url", function (event, data) {
   event.preventDefault();
   autoJoinRoom = data.replace("jamhouse://", "");
   try {
-    win.webContents.send("join-room", data.replace("jamhouse://", ""));
+    win.webContents.send("join-room", autoJoinRoom);
   } catch (e) {}
 });
