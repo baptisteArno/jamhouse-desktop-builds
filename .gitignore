@@ -2,6 +2,4 @@
 .DS_Store
 yarn-error.log
 
-out/Jamhouse-darwin-x64
-out/Jamhouse-linux-x64
-out/Jamhouse-win32-x64
+out

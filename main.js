@@ -6,6 +6,10 @@ const express = require("express");
 const server = express();
 const port = 7999;
 
+require("update-electron-app")();
+
+if (require("electron-squirrel-startup")) return app.quit();
+
 server.use(cors());
 server.use(express.json());
 
@@ -33,8 +37,6 @@ server.get("/youtubeSuggestion", async (req, res) => {
   });
   res.send(suggestions);
 });
-
-if (require("electron-squirrel-startup")) return app.quit();
 
 let win;
 function createWindow() {
