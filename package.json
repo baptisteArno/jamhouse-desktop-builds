@@ -1,9 +1,13 @@
 {
   "name": "jamhouse",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Baptiste Arnaud",
   "description": "Jamhouse",
   "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/baptisteArno/jamhouse-electron.git"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "electron-squirrel-startup": "^1.0.0",

@@ -49,7 +49,7 @@ function createWindow() {
     },
   });
 
-  win.loadURL("http://localhost:3000/me");
+  win.loadURL("https://jamhouse.app/me");
 }
 
 app.whenReady().then(() => {
