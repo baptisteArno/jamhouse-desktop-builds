@@ -1,6 +1,6 @@
 {
   "name": "jamhouse",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "Baptiste Arnaud",
   "description": "Jamhouse",
   "main": "main.js",
@@ -54,7 +54,10 @@
           "name": "@electron-forge/maker-zip"
         },
         {
-          "name": "@electron-forge/maker-dmg"
+          "name": "@electron-forge/maker-dmg",
+          "config": {
+            "name": "Jamhouse"
+          }
         },
         {
           "name": "@electron-forge/maker-squirrel"
