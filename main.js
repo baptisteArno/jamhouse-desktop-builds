@@ -51,7 +51,7 @@ function createWindow() {
     },
   });
 
-  win.loadURL("http://localhost:3000/me");
+  win.loadURL("https://jamhouse.app/me");
 }
 
 app.whenReady().then(() => {
@@ -74,8 +74,7 @@ app.on("activate", () => {
   }
 });
 
-// app.setAsDefaultProtocolClient("jamhouse");
-protocol.unregisterProtocol("jamhouse");
+app.setAsDefaultProtocolClient("jamhouse");
 
 ipcMain.on("open-link", (_, args) => {
   shell.openExternal(args);
