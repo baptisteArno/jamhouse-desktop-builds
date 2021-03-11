@@ -1,10 +1,12 @@
 const { app, BrowserWindow, ipcMain, shell } = require("electron");
+const { protocol } = require("electron");
 const path = require("path");
 const ytMusic = require("node-youtube-music").default;
 const cors = require("cors");
 const express = require("express");
 const server = express();
 const port = 7999;
+let autoJoinRoom;
 
 require("update-electron-app")();
 
@@ -49,12 +51,15 @@ function createWindow() {
     },
   });
 
-  win.loadURL("https://jamhouse.app/me");
+  win.loadURL("http://localhost:3000/me");
 }
 
 app.whenReady().then(() => {
   server.listen(port, () => console.log("Server listening"));
   createWindow();
+  if (autoJoinRoom) {
+    win.webContents.send("join-room", data.replace("jamhouse://", ""));
+  }
 });
 
 app.on("window-all-closed", () => {
@@ -69,7 +74,8 @@ app.on("activate", () => {
   }
 });
 
-app.setAsDefaultProtocolClient("jamhouse");
+// app.setAsDefaultProtocolClient("jamhouse");
+protocol.unregisterProtocol("jamhouse");
 
 ipcMain.on("open-link", (_, args) => {
   shell.openExternal(args);
@@ -77,5 +83,8 @@ ipcMain.on("open-link", (_, args) => {
 
 app.on("open-url", function (event, data) {
   event.preventDefault();
-  win.webContents.send("join-room", data.replace("jamhouse://", ""));
+  autoJoinRoom = data.replace("jamhouse://", "");
+  try {
+    win.webContents.send("join-room", data.replace("jamhouse://", ""));
+  } catch (e) {}
 });
