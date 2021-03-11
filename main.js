@@ -1,5 +1,4 @@
 const { app, BrowserWindow, ipcMain, shell } = require("electron");
-const { protocol } = require("electron");
 const path = require("path");
 const ytMusic = require("node-youtube-music").default;
 const cors = require("cors");
@@ -51,15 +50,16 @@ function createWindow() {
     },
   });
 
-  win.loadURL("https://jamhouse.app/me");
+  if (autoJoinRoom) {
+    win.loadURL(`https://jamhouse.app/${autoJoinRoom}`);
+  } else {
+    win.loadURL("https://jamhouse.app/me");
+  }
 }
 
 app.whenReady().then(() => {
   server.listen(port, () => console.log("Server listening"));
   createWindow();
-  if (autoJoinRoom) {
-    win.webContents.send("join-room", autoJoinRoom);
-  }
 });
 
 app.on("window-all-closed", () => {
