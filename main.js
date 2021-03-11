@@ -74,3 +74,8 @@ app.setAsDefaultProtocolClient("jamhouse");
 ipcMain.on("open-link", (_, args) => {
   shell.openExternal(args);
 });
+
+app.on("open-url", function (event, data) {
+  event.preventDefault();
+  win.webContents.send("join-room", data.replace("jamhouse://", ""));
+});
