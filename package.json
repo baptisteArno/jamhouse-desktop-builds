@@ -1,0 +1,69 @@
+{
+  "name": "jamhouse",
+  "version": "0.1.0",
+  "author": "Baptiste Arnaud",
+  "description": "Jamhouse",
+  "main": "main.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "electron-squirrel-startup": "^1.0.0",
+    "express": "^4.17.1",
+    "node-youtube-music": "^0.2.5"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-dmg": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "electron": "12.0.0"
+  },
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "make:all": "electron-forge make && electron-forge make --platform=linux",
+    "publish": "electron-forge publish"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "./assets/icon.ico",
+        "name": "Jamhouse",
+        "appBundleId": "com.jamhouse.app",
+        "osxSign": {
+          "identity": "Developer ID Application: Baptiste Arnaud (YJ5SMWX927)",
+          "hardened-runtime": true,
+          "entitlements": "entitlements.plist",
+          "entitlements-inherit": "entitlements.plist",
+          "signature-flags": "library"
+        },
+        "osxNotarize": {
+          "appleId": "baptiste.arnaud95@gmail.com",
+          "appleIdPassword": "nfbp-uvyz-dpit-wprj"
+        }
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-dmg"
+        },
+        {
+          "name": "@electron-forge/maker-squirrel"
+        },
+        {
+          "name": "@electron-forge/maker-deb"
+        }
+      ],
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "baptisteArno",
+              "name": "jamhouse-electron"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
