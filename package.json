@@ -1,6 +1,6 @@
 {
   "name": "jamhouse",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "author": "Baptiste Arnaud",
   "description": "Jamhouse",
   "main": "main.js",
@@ -29,7 +29,8 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "make:all": "electron-forge make && electron-forge make --platform=linux",
-    "publish:mac": "electron-forge publish --targets=@electron-forge/maker-zip,@electron-forge/maker-dmg"
+    "publish:mac": "electron-forge publish --targets=@electron-forge/maker-zip,@electron-forge/maker-dmg",
+    "publish:win": "electron-forge publish --platform=win32 --targets=@electron-forge/maker-squirrel"
   },
   "config": {
     "forge": {
