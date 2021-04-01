@@ -23,11 +23,14 @@ server.get("/exists", async (_, res) => {
   res.send(true);
 });
 
-server.get("/youtubeSearch", async (req, res) => {
+server.get("/youtubeSearchMusics", async (req, res) => {
   const lang = req.query.lang?.toString() ?? "en";
-  const searchResults = await ytMusic.search(req.query.search.toString(), {
-    lang,
-  });
+  const searchResults = await ytMusic.searchMusics(
+    req.query.search.toString(),
+    {
+      lang,
+    }
+  );
   res.send(searchResults);
 });
 
@@ -37,6 +40,23 @@ server.get("/youtubeSuggestion", async (req, res) => {
     lang,
   });
   res.send(suggestions);
+});
+
+server.get("/youtubeSearchPlaylists", async (req, res) => {
+  const searchResults = await ytMusic.searchPlaylists(
+    req.query.search.toString(),
+    {
+      onlyOfficialPlaylists: true,
+    }
+  );
+  res.send(searchResults);
+});
+
+server.get("/youtubeListMusicsFromPlaylist", async (req, res) => {
+  const searchResults = await ytMusic.listMusicsFromPlaylist(
+    req.query.id.toString()
+  );
+  res.send(searchResults);
 });
 
 let win;

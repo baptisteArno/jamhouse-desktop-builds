@@ -1852,7 +1852,7 @@ globalthis@^1.0.1:
   dependencies:
     define-properties "^1.1.3"
 
-got@^11.7.0, got@^11.8.1:
+got@^11.7.0, got@^11.8.2:
   version "11.8.2"
   resolved "https://registry.yarnpkg.com/got/-/got-11.8.2.tgz#7abb3959ea28c31f3576f1576c1effce23f33599"
   integrity sha512-D0QywKgIe30ODs+fm8wMZiAcZjypcCodPNuMz5H9Mny7RJ+IjJ10BdmGW7OM7fHXP+O7r6ZwapQ/YQmMSvB0UQ==
@@ -2643,21 +2643,12 @@ node-pre-gyp@^0.11.0:
     semver "^5.3.0"
     tar "^4"
 
-node-youtube-music@^0.1.3:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/node-youtube-music/-/node-youtube-music-0.1.8.tgz#a78b5b267dc81f3ed118f994228ee59fef9d37ee"
-  integrity sha512-2SA5l7mAOWP+44Nq//WvIIarR3Om3N1dndfftbtEpMr/u+iWtUYkoK9Z/TmghvFIGvkz1R/szig+KFIlv5h8yw==
+node-youtube-music@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/node-youtube-music/-/node-youtube-music-0.3.1.tgz#2cb43a17d6d35864b46e5edf5fe884e2595ec5ae"
+  integrity sha512-9YT2Q9aRH9dUvxFG/bUQxmT4fiLJ/J7y3ZzOQYGz2Bsdc/npO7e11Jbjq2SevvuCdmrJT3Hyto7r1frKU+saow==
   dependencies:
-    got "^11.8.1"
-    node-youtube-music "^0.1.3"
-
-node-youtube-music@^0.2.5:
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/node-youtube-music/-/node-youtube-music-0.2.5.tgz#7561e020bf063161bca2490bfcefad0591db0c5a"
-  integrity sha512-FOtaV+bQiYEnbQYEpWPas/sQWsApBb4xJDFBAHylvHz+ky5lCAFZlwdCcSnLrI3oGCgIPtDw/H/IvE9tUUuTxg==
-  dependencies:
-    got "^11.8.1"
-    node-youtube-music "^0.1.3"
+    got "^11.8.2"
 
 nopt@^4.0.1:
   version "4.0.3"
